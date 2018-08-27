@@ -41,9 +41,8 @@
             Return _memoria.Peek()
         End Get
         Set(ByVal value As String)
-            Dim aux As String
-            aux = value
-            _memoria.Enqueue(aux)
+
+            _memoria.Enqueue(value)
         End Set
     End Property
 
@@ -53,8 +52,8 @@
     End Sub
 
     Public Sub Hablar(ByRef numero As Integer)
-        For index = 1 To numero
-            Console.WriteLine(_memoria.Peek())
+        For index = 0 To numero
+            Console.WriteLine(_memoria.Peek(index))
         Next
     End Sub
 
