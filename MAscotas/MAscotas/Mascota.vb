@@ -5,11 +5,15 @@ Module Mascota
     Sub Main()
         Dim pepe As Loro
         pepe = New Loro
-        pepe.Escuchar("Papita")
-        pepe.Escuchar("Pa el loro")
+        pepe.Escuchar("Papita ")
+        pepe.Escuchar("Pa el loro ")
         pepe.Escuchar("juan")
 
-        pepe.Hablar(3)
+
+        Console.WriteLine(pepe.Hablar())
+        Console.WriteLine(pepe.Hablar())
+        Console.WriteLine(pepe.Hablar())
+        Console.WriteLine(pepe.Edad)
     End Sub
 
 End Module

@@ -4,6 +4,7 @@
     Private _fechaNacimiento As Date
     Private _edad As Short
     Private _memoria As New Queue
+    Private texto As String
 
     Public Sub New()
         Nombre = ""
@@ -31,30 +32,22 @@
 
     Public ReadOnly Property Edad() As Short
         Get
+            _edad = Now.Year - _fechaNacimiento.Year
             Return _edad
         End Get
 
     End Property
 
-    Private Property Memoria() As String
-        Get
-            Return _memoria.Peek()
-        End Get
-        Set(ByVal value As String)
 
-            _memoria.Enqueue(value)
-        End Set
-    End Property
 
     '////////// Metodos /////////////////////
     Public Sub Escuchar(ByRef sonido As String)
         _memoria.Enqueue(sonido)
     End Sub
 
-    Public Sub Hablar(ByRef numero As Integer)
-        For index = 0 To numero
-            Console.WriteLine(_memoria.Peek(index))
-        Next
-    End Sub
+    Public Function Hablar()
+        texto = texto & _memoria.Dequeue
+        Return texto
+    End Function
 
 End Class
